@@ -17,9 +17,9 @@ class ControleGastosSearch extends ControleGastos
     public function rules()
     {
         return [
-            [['id', 'mes'], 'integer'],
+            [['id', 'mes', 'ano'], 'integer'],
+            [['descricao'], 'safe'],
             [['entrada', 'saida', 'total', 'mete'], 'number'],
-            [['ano', 'descricao'], 'safe'],
         ];
     }
 
@@ -60,11 +60,11 @@ class ControleGastosSearch extends ControleGastos
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'mes' => $this->mes,
             'entrada' => $this->entrada,
             'saida' => $this->saida,
             'total' => $this->total,
             'mete' => $this->mete,
+            'mes' => $this->mes,
             'ano' => $this->ano,
         ]);
 

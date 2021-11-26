@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Controllers;
+namespace app\controllers;
 
 use app\models\ControleGastos;
 use app\models\ControleGastosSearch;
@@ -128,6 +128,6 @@ class ControleGastosController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

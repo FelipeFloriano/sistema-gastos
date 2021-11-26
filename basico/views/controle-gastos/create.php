@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\ControleGastos */
 
-$this->title = 'Create Controle Gastos';
-$this->params['breadcrumbs'][] = ['label' => 'Controle Gastos', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Controle Gastos');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Controle Gastos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="controle-gastos-create">

@@ -5,16 +5,16 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "controleGastos".
+ * This is the model class for table "controle_gastos".
  *
  * @property int $id
- * @property int $mes
+ * @property string $descricao
  * @property float $entrada
  * @property float $saida
  * @property float $total
  * @property float $mete
- * @property string $ano
- * @property string $descricao
+ * @property int $mes
+ * @property int $ano
  */
 class ControleGastos extends \yii\db\ActiveRecord
 {
@@ -23,7 +23,7 @@ class ControleGastos extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'controleGastos';
+        return 'controle_gastos';
     }
 
     /**
@@ -32,12 +32,10 @@ class ControleGastos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'mes', 'entrada', 'saida', 'total', 'mete', 'ano', 'descricao'], 'required'],
-            [['id', 'mes'], 'integer'],
+            [['descricao', 'entrada', 'saida', 'total', 'mete', 'mes', 'ano'], 'required'],
             [['entrada', 'saida', 'total', 'mete'], 'number'],
-            [['ano'], 'safe'],
-            [['descricao'], 'string', 'max' => 250],
-            [['id'], 'unique'],
+            [['mes', 'ano'], 'integer'],
+            [['descricao'], 'string', 'max' => 255],
         ];
     }
 
@@ -48,13 +46,13 @@ class ControleGastos extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'mes' => 'Mes',
+            'descricao' => 'Descricao',
             'entrada' => 'Entrada',
             'saida' => 'Saida',
             'total' => 'Total',
             'mete' => 'Mete',
+            'mes' => 'Mes',
             'ano' => 'Ano',
-            'descricao' => 'Descricao',
         ];
     }
 }
